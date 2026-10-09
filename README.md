@@ -1,16 +1,10 @@
-# PSP SERT Callout Report V6.1 — encrypted-draft prototype
+# PSP SERT Callout Report V6.2
 
-Updates: 24-hour time labels and 24-hour Word output, visible app version and local installation-version history, passphrase-based AES-256-GCM encrypted browser drafts, inactivity lock. No Microsoft/OneDrive authentication added.
+Changes: Keeps V6 mobile layout, 24-hour labels and Word export, and app version tracking. Removed the encrypted vault, passphrase, automatic lock, and the security-warning paragraph from the form. Drafts now save locally without encryption. No authentication or hosting changes.
 
-## Important security limitations
-- **Not approved for operational information.** Requires PSP IT/security review and testing.
-- Word DOCX exports and share attachments are **not encrypted**. Device downloads and Outlook handling require approved procedures.
-- GitHub Pages remains publicly accessible. Encryption protects local drafts, not the app's public availability.
-- Passphrase cannot be recovered. Deleting browser storage or reinstalling may lose drafts.
-- Native date/time pickers may display AM/PM depending on iOS/Android locale; exported Word output is 24-hour.
-- Auto-lock on iOS is best effort; suspended background apps may not run timers.
-- Legacy plaintext draft is offered for import after unlocking, then its localStorage entry is removed; removal does not guarantee forensic erasure.
-- Existing draft data is not synced across devices.
+**Important:** This version does not encrypt drafts or exported Word documents. GitHub Pages remains publicly accessible. Do not enter operationally sensitive information without department approval.
+
+**Migration:** Previous encrypted V6.1 vault data is left untouched but cannot be opened by V6.2. If you need it, use V6.1 and its original passphrase to export it before switching. Older plaintext drafts may be restored automatically.
 
 ## Deploy
-Unzip all files into GitHub repository root, commit, allow GitHub Pages to update, then fully close and reopen the PWA. Use fictional data for testing.
+Unzip all files to the GitHub repository root, replacing matching files, and commit. Reload the installed app after Pages updates.
