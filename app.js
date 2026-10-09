@@ -1,7 +1,7 @@
 const form=document.querySelector('#report'), status=document.querySelector('#status');
 const get=()=>Object.fromEntries([...new FormData(form).entries()].map(([k,v])=>[k,v]));
 function vals(){const d=get();d.under24=form.elements.under24.checked;d.under8=form.elements.under8.checked;return d}
-const APP_VERSION='6.3.0', DRAFT_KEY='sertDraft';
+const APP_VERSION='6.4.0', DRAFT_KEY='sertDraft';
 try{const key='sertAppVersionHistory';const hist=JSON.parse(localStorage.getItem(key)||'[]');if(hist.at(-1)?.version!==APP_VERSION){hist.push({version:APP_VERSION,installed:new Date().toISOString()});localStorage.setItem(key,JSON.stringify(hist.slice(-12)))}document.querySelector('#versionHistory').textContent='Installed versions on this device: '+hist.map(x=>x.version).join(' → ')}catch(e){}
 function changed(){document.querySelector('#changedWrap').classList.toggle('hidden',form.elements.changed.value!=='YES')};changed();form.elements.changed.addEventListener('change',changed);
 function fill(d){for(const [k,v] of Object.entries(d)){let e=form.elements[k];if(e){if(e.type==='checkbox')e.checked=!!v;else e.value=v}}changed()}
